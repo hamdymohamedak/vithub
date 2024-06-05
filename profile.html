@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)file:///C:/Users/Fares/Downloads/index%20(1).html -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="shortcut icon" href="./favcon.png" type="image/x-icon">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      transition: 0.2s;
+      border: none;
+    }
+
+    .container {
+      max-width: 40rem;
+      margin: 1.1rem;
+      padding: 1.1rem;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .form-section {
+      margin-bottom: 40px;
+    }
+
+    .form-section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .form-section label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-section input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #f9f9f9;
+      font-size: 16px;
+      color: #333;
+      background: #007bff;
+      box-shadow: 1px 1px 20px -6px #007bff;
+      border-radius: 1rem;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .form-section input[type="submit"] {
+      width: 100%;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 4px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .form-section input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .dog_img {
+      height: 22rem;
+    }
+
+    input[type="file"]::file-selector-button {
+      background: white;
+      text-align: center;
+      border-radius: 1rem;
+      border: none;
+      width: 12rem;
+      height: 2.5rem;
+    }
+
+    .result-section {
+      text-align: center;
+      border: none;
+    }
+
+    .result-section .image-container {
+      width: 13rem;
+      height: 13rem;
+      margin: 20px auto;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: #407aff;
+      background-image: url(./img/Login_person.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      border: 1px solid transparent;
+      scale: 1.1;
+
+    }
+
+    .result-section .image-container:hover {
+      scale: 0.9;
+    }
+
+    .result-section .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      scale: 1.1;
+    }
+
+    .result-section .classification-result {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+
+    .result-section .classification-result div {
+      margin-bottom: 10px;
+    }
+
+    .result-section .classification-result strong {
+      font-weight: bold;
+      color: #333;
+    }
+
+    #headerParent {
+      min-height: 5rem;
+      gap: 2rem;
+    }
+
+    ul li {
+      list-style: none;
+      text-align: center;
+    }
+
+    li {
+      margin: 0.8rem;
+    }
+
+    li a {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    li:hover {
+      scale: 1.2;
+    }
+  </style>
+</head>
+
+<body>
+  <img class="dog_img" src="./img/dog_upload.png" alt="Logo">
+  <header class="main_menu home_menu">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="index.html"> <img src="./favcon.png" style="width: 150px;"
+                            alt="logo"> </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse main-menu-item justify-content-center"
+                        id="navbarSupportedContent">
+                        <ul class="navbar-nav align-items-center">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./doctors.html">Doctors</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./blog.html">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./Login.html">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./profile.html">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./dashboard.html">DashBoard</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="form-section">
+      <h2>Upload Image</h2>
+      <form id="uploadForm" enctype="multipart/form-data">
+        <label for="imageInput">Choose an image:</label>
+        <input id="imageInput" type="file" name="image" accept="image/*" required="">
+        <input id="submitBtn" type="submit" value="Submit">
+      </form>
+    </div>
+
+    <div class="result-section">
+      <div class="image-container" id="image-container"><img src="blob:null/3c171979-c005-49b5-9985-9a561bf04749"></div>
+      <div class="classification-result" id="classification-result">
+        <div><strong>Name of the disease:</strong> Normal<br><strong></strong> The image appears to be normal, without
+          any detected disease.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let navAnimation = document.querySelector("#headerParent");
+    let xElement = document.querySelector(".X")
+    xElement.style.width = "1.1rem"
+    xElement.style.color = "red"
+    xElement.style.cursor = "pointer"
+    xElement.addEventListener("click", () => {
+      xElement.style.display = "none";
+
+      animate(10);
+    });
+
+    function animate(height) {
+      if (height >= 1) {
+        setTimeout(() => {
+          navAnimation.style.height = height + "rem";
+          animate(height - 1);
+        }, 100); // Adjust the duration as needed
+      } else {
+        navAnimation.style.backgroundColor = "#407aff";
+        navAnimation.style.transform = "rotate(90deg)";
+        navAnimation.style.opacity = "0";
+        setTimeout(() => {
+          navAnimation.style.display = "none"
+        }, 1000);
+      }
+    }
+
+  </script>
+
+
+
+
+</body>
+
+</html>
