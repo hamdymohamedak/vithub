@@ -1,342 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>dashboard</title>
-    <link rel="shortcut icon" href="./favcon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./favcon.png" type="image/x-icon" />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            flex-direction: column;
-        }
-
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            transition: 0.2s;
-            user-select: none;
-        }
-
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        transition: 0.2s;
+        user-select: none;
+      }
+      html {
+        font-size: 16px;
+      }
+      form {
+        width: 30rem;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        padding: 1.1rem;
+        box-sizing: border-box;
+      }
+      label {
+        font-weight: bold;
+        margin-bottom: 8px;
+        display: block;
+      }
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 6px 0 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 1rem;
+      }
+      input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        margin: 6px 0 12px;
+        box-sizing: border-box;
+        font-size: 1rem;
+      }
+      textarea {
+        resize: vertical;
+      }
+      input[type="submit"] {
+        background-color: #0271fa;
+        color: white;
+        padding: 0.9rem 1.1rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+        font-weight: bold;
+      }
+      input[type="submit"]:hover {
+        background-color: #1a59a7;
+      }
+      .post_parent {
+        margin-bottom: 1rem;
+        border: 2px solid black;
+        padding: 1rem;
+        border-radius: 1rem;
+        box-shadow: 1px -1px 31px -3px black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .post_parent :nth-child(n) {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .img_post {
+        height: 14rem;
+        width: 30rem;
+        object-fit: scale-down;
+      }
+      .delete-btn {
+        height: 3rem;
+        width: 12rem;
+        border-radius: 1rem;
+        box-shadow: 1px 1px 9px 1px black;
+        border: none;
+        background: black;
+        font-size: 1.1rem;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .delete-btn:hover {
+        scale: 1.1;
+      }
+      input[type="file"] {
+        border-radius: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #0371fa;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        position: relative;
+      }
+      input[type="file"]:hover {
+        scale: 0.9;
+      }
+      input[type="file"]::file-selector-button {
+        background: white;
+        text-align: center;
+        border-radius: 1rem;
+        border: none;
+        width: 12rem;
+        height: 2.5rem;
+      }
+      .profile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3rem;
+        border-radius: 0.5rem;
+        font-weight: bold;
+      }
+      .profile_img {
+        height: 4rem;
+      }
+      .dog_img {
+        height: 22rem;
+      }
+      .form_img_parent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5rem;
+        flex-wrap: wrap;
+      }
+      #headerParent {
+        min-height: 5rem;
+        gap: 2rem;
+      }
+      .container {
+        max-width: 40rem;
+        margin: 1.1rem;
+        padding: 1.1rem;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+      ul li {
+        list-style: none;
+        text-align: center;
+      }
+      li {
+        margin: 0.8rem;
+      }
+      li a {
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+      li:hover {
+        scale: 1.2;
+      }
+      @media (min-width: 325px) and (max-width: 425px) {
         html {
-            font-size: 16px;
+          font-size: 12px;
         }
-
-        form {
-            width: 30rem;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            padding: 1.1rem;
-            box-sizing: border-box;
+      }
+      @media (min-width: 426px) and (max-width: 768px) {
+        html {
+          font-size: 13px;
         }
-
-        label {
-            font-weight: bold;
-            margin-bottom: 8px;
-            display: block;
+      }
+      @media (min-width: 769px) and (max-width: 1200px) {
+        html {
+          font-size: 16px;
         }
-
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 6px 0 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 1rem;
-        }
-
-        input[type="file"] {
-            width: 100%;
-            padding: 10px;
-            margin: 6px 0 12px;
-            box-sizing: border-box;
-            font-size: 1rem;
-        }
-
-        textarea {
-            resize: vertical;
-        }
-
-        input[type="submit"] {
-            background-color: #0271fa;
-            color: white;
-            padding: 0.9rem 1.1rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: 0.3s;
-            font-weight: bold;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #1a59a7;
-        }
-
-        .post_parent {
-            margin-bottom: 1rem;
-            border: 2px solid black;
-            padding: 1rem;
-            border-radius: 1rem;
-            box-shadow: 1px -1px 31px -3px black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .post_parent :nth-child(n) {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .img_post {
-            height: 14rem;
-            width: 30rem;
-            object-fit: scale-down;
-
-        }
-
-        .delete-btn {
-            height: 3rem;
-            width: 12rem;
-            border-radius: 1rem;
-            box-shadow: 1px 1px 9px 1px black;
-            border: none;
-            background: black;
-            font-size: 1.1rem;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .delete-btn:hover {
-            scale: 1.1;
-        }
-
-        input[type="file"] {
-            border-radius: 1rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #0371fa;
-            font-weight: bold;
-            color: white;
-            cursor: pointer;
-            position: relative;
-        }
-
-        input[type="file"]:hover {
-            scale: 0.9;
-        }
-
-        input[type="file"]::file-selector-button {
-            background: white;
-            text-align: center;
-            border-radius: 1rem;
-            border: none;
-            width: 12rem;
-            height: 2.5rem;
-        }
-
-        .profile {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 3rem;
-            border-radius: 0.5rem;
-            font-weight: bold;
-        }
-
-        .profile_img {
-            height: 4rem;
-        }
-
-        .dog_img {
-            height: 22rem;
-        }
-
-        .form_img_parent {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 5rem;
-            flex-wrap: wrap;
-        }
-
-        #headerParent {
-            min-height: 5rem;
-            gap: 2rem;
-        }
-
-        .container {
-            max-width: 40rem;
-            margin: 1.1rem;
-            padding: 1.1rem;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        ul li {
-            list-style: none;
-            text-align: center;
-
-        }
-
-        li {
-            margin: 0.8rem;
-        }
-
-        li a {
-            color: black;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        li:hover {
-            scale: 1.2;
-        }
-
-        @media (min-width:325px) and (max-width:425px) {
-            html {
-                font-size: 12px;
-            }
-
-        }
-
-        @media (min-width:426px) and (max-width:768px) {
-            html {
-                font-size: 13px;
-            }
-        }
-
-        @media (min-width:769px) and (max-width:1200px) {
-            html {
-                font-size: 16px;
-            }
-        }
+      }
     </style>
-</head>
-
-<body>
-
+  </head>
+  <body>
     <div class="form_img_parent">
-
-        <img class="dog_img" src="./img/dog_upload.png" alt="Logo">
-        <header class="main_menu home_menu">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-12">
-                        <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="index.html"> <img src="./favcon.png" style="width: 150px;"
-                                    alt="logo"> </a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-        
-                            <div class="collapse navbar-collapse main-menu-item justify-content-center"
-                                id="navbarSupportedContent">
-                                <ul class="navbar-nav align-items-center">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="./index.html">Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="doctors.html">Doctors</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="./blog.html">Blog</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="./Login.html">Login</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="./profile.html">Profile</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="./dashboard.html">DashBoard</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
+      <img class="dog_img" src="./img/dog_upload.png" alt="Logo" />
+      <header class="main_menu home_menu">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-12">
+              <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="index.html">
+                  <img src="./favcon.png" style="width: 150px" alt="logo" />
+                </a>
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div
+                  class="collapse navbar-collapse main-menu-item justify-content-center"
+                  id="navbarSupportedContent"
+                >
+                  <ul class="navbar-nav align-items-center">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="doctors.html">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./Login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./profile.html">Profile</a>
+                    </li>
+                  </ul>
                 </div>
+              </nav>
             </div>
-        </header>
-        <form action="" method="post" enctype="multipart/form-data">
-            <div class="profile">
-                <img class="profile_img" src="./favcon.png" alt="Logo">
-            </div>
-
-            <label for="title">Title:</label>
-            <input class="titleInput" type="text" id="title" name="title" required>
-
-            <label for="content">Content:</label>
-            <textarea class="contentInput" id="content" name="content" rows="4" required></textarea>
-
-            <label for="image">Upload Image:</label>
-            <input id="file" type="file" id="image" name="image" accept="image/*">
-
-            <input type="submit" value="Submit">
-        </form>
+          </div>
+        </div>
+      </header>
+      <form action="" method="post" enctype="multipart/form-data">
+        <div class="profile">
+          <img class="profile_img" src="./favcon.png" alt="Logo" />
+        </div>
+        <label for="title">Title:</label>
+        <input
+          class="titleInput"
+          type="text"
+          id="title"
+          name="title"
+          required
+        />
+        <label for="content">Content:</label>
+        <textarea
+          class="contentInput"
+          id="content"
+          name="content"
+          rows="4"
+          required
+        ></textarea>
+        <label for="image">Upload Image:</label>
+        <input id="file" type="file" id="image" name="image" accept="image/*" />
+        <input type="submit" value="Submit" />
+      </form>
     </div>
-
     <h1>Post</h1>
     <div class="post_parent">
-        <!-- <img src="" alt="">
+      <!-- <img src="" alt="">
         <div>title</div>
         <p>content</p>
         <h3>Date</h3> -->
     </div>
     <script>
-        let navAnimation = document.querySelector("#headerParent");
-        let xElement = document.querySelector(".X")
-        xElement.style.width = "1.1rem"
-        xElement.style.color = "red"
-        xElement.style.cursor = "pointer"
-        xElement.addEventListener("click", () => {
-            xElement.style.display = "none";
-
-            animate(10);
-        });
-
-        function animate(height) {
-            if (height >= 1) {
-                setTimeout(() => {
-                    navAnimation.style.height = height + "rem";
-                    animate(height - 1);
-                }, 100); // Adjust the duration as needed
-            } else {
-                navAnimation.style.backgroundColor = "#407aff";
-                navAnimation.style.transform = "rotate(-90deg)";
-                navAnimation.style.opacity = "0";
-                setTimeout(() => {
-                    navAnimation.style.display = "none"
-                }, 1000);
-            }
+      let navAnimation = document.querySelector("#headerParent");
+      let xElement = document.querySelector(".X");
+      xElement.style.width = "1.1rem";
+      xElement.style.color = "red";
+      xElement.style.cursor = "pointer";
+      xElement.addEventListener("click", () => {
+        xElement.style.display = "none";
+        animate(10);
+      });
+      function animate(height) {
+        if (height >= 1) {
+          setTimeout(() => {
+            navAnimation.style.height = height + "rem";
+            animate(height - 1);
+          }, 100); // Adjust the duration as needed
+        } else {
+          navAnimation.style.backgroundColor = "#407aff";
+          navAnimation.style.transform = "rotate(-90deg)";
+          navAnimation.style.opacity = "0";
+          setTimeout(() => {
+            navAnimation.style.display = "none";
+          }, 1000);
         }
-
+      }
     </script>
-
-
-
-
-</body>
-
+  </body>
 </html>
